@@ -1,0 +1,13 @@
+<!--index.html-->
+{{ template "header.html" .}}
+
+        <h1>{{ .title}}</h1>
+        <!-- <h1>{{ .UserAll}}</h1> -->
+        <input name="username" type="text" id="username">
+        <input type="button" onclick="sendToGo()" value="ADD">
+        <!-- {{.UserAll}} -->
+        {{range .UserAll}}
+            <p>&middot; {{.Username}}</p>
+        {{end}}
+
+{{ template "footer.html"}}

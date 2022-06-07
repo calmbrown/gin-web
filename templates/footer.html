@@ -1,0 +1,29 @@
+<!--footer.html-->
+    </body>
+    <script>
+        function sendToGo(){
+            var formSerializeArray = $('#username').serializeArray();
+
+            var params = {};
+            for (var i = 0; i < formSerializeArray.length; i++){
+                params[formSerializeArray[i]['name']] = formSerializeArray[i]['value'];
+
+            }
+            // alert(JSON.stringify(params));
+            $.ajax({
+                type : 'post',
+                url : '/points',
+                data : JSON.stringify(params),
+                error: function(){
+                    alert("에러발생");
+                },
+                success : function(json){
+                    // alert("성공")
+                    setInterval('location.reload()', 100
+                    ); 
+                }
+                
+            });
+        }
+    </script>
+</html>
